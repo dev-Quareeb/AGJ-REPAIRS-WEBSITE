@@ -1,43 +1,36 @@
-// NAV BAR TOGGLE MENU// 
+ // Nav scroll shadow
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
 
-function showSidebar(){
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.style.display = 'flex'
-}
+    // Hamburger / mobile menu
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    const cls = document.getElementById('mobClose');
+    const closeMob = () => { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = ''; };
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+    });
+    cls.addEventListener('click', closeMob);
+    document.querySelectorAll('.mob-l').forEach(l => l.addEventListener('click', closeMob));
 
-function hideSidebar(){
-  const sidebar = document.querySelector('.sidebar')
-  sidebar.style.display = 'none'
-}
-//TOGGLE ENDS//
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const ans  = item.querySelector('.faq-a');
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-a').style.height = '0';
+        });
+        if (!open) { item.classList.add('open'); ans.style.height = ans.scrollHeight + 'px'; }
+      });
+    });
 
-
-
-const q = document.querySelectorAll('.q');
-const a = document.querySelectorAll('.a');
-const arr = document.querySelectorAll('.arrow');
-
-// select all q elements
-
-for(let i = 0; i < q.length; i++) {
-  //add click event to alll q elements
-  q[i].addEventListener('click', () => {
-  // open the a element with the same 'i' as the clicked 'q' element
-  a[i].classList.toggle('a-opened');
-  //rotate the arr element with the same 'i' as the clicked 'q' el;ement
-  arr[i].classList.toggle('arrow-rotated');
-});
-}
-
-/*
-const button = document.getElementById('Subscribebtn');
- button.addEventListener('click', () => {
-  if (button.classList.contains('subscribed')) {
-    button.classList.remove('subscribed');
-    button.textContent = 'subscribe';
-      }
-      else {
-        button.classList.add('subscribed');
-        button.textContent = 'subscribed';
-      }
- });*/
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));

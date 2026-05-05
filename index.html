@@ -5,592 +5,347 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AGJ TECHNOLOGY | AGJ REPAIRS</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="media.css">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav>
-     <ul class="sidebar">
-      <li onclick=hideSidebar() ><a><img src="burger cancel.png" height="30" width="30"></a></li>
-      <li><a href="#about" onclick=hideSidebar()>About</a></li>
-      <li><a href="#our-services" onclick=hideSidebar()>Services</a></li>
-      <li><a href="#customer-review" onclick=hideSidebar()>Testimonials</a></li>
-      <li><a href="#faq-section" onclick=hideSidebar()>FAQs</a></li>
-      <li><a href="#contact-us" onclick=hideSidebar()>Booking and Appointments</a></li>
 
-     </ul>
-
-    <ul>
-      <li><a href="#">AGJ REPAIRS</a></li>
-      <li class="hideOnMobile"><a href="#about">About</a></li>
-      <li class="hideOnMobile"><a href="#our-services">Services</a></li>
-      <li class="hideOnMobile"><a href="#customer-review">Testimonials</a></li>
-      <li class="hideOnMobile"><a href="#faq-section">FAQS</a></li>
-      <li class="hideOnMobile"><a href="#contact-us">Booking and Appointments</a></li>
-       <li class="menu-button" onclick=showSidebar()><a ><img src="burger icon.png" height="30" width="50"></a></li>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#home" class="nav-logo">AGJ <span>REPAIRS</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#our-services">Services</a></li>
+      <li><a href="#customer-review">Testimonials</a></li>
+      <li><a href="#faq-section">FAQs</a></li>
     </ul>
+    <a href="#contact-us" class="btn btn-blue" style="margin-left:12px; display:none;" id="navCta">Book Appointment</a>
+    <a href="#contact-us" class="btn btn-blue" style="margin-left:12px;" id="navCtaDesk">Book Appointment</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-<section id="home">
-  <div class="hero-section">
-    <h2>Have A <span style="color: rgb(18, 105, 219);">Faulty</span> Gadget? <span style="color: rgb(18, 105, 219);">We</span> Can Fix Anything</h2>
-    <p>Reliable Repair Services For Your Devices. We'll Fix It till Its Perfect</p>
-         <a href="#our-introduction"><button>Discover More</button></a>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="#about" class="mob-l">About</a>
+    <a href="#our-services" class="mob-l">Services</a>
+    <a href="#customer-review" class="mob-l">Testimonials</a>
+    <a href="#faq-section" class="mob-l">FAQs</a>
+    <a href="#contact-us" class="mob-l">Book Appointment</a>
   </div>
-  <div class="hero-section_1">
-    <img src="images/repair2.jpg">
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="dot"></span> Available Now — Same Day Repairs</div>
+      <h1>Got a <span class="hl">Faulty</span><br>Gadget? <span class="hl">We</span><br>Fix Anything.</h1>
+      <p class="hero-desc">Reliable repair services for phones, laptops &amp; computers. We'll fix it till it's perfect — backed by 5+ years of expertise.</p>
+      <div class="hero-btns">
+        <a href="#our-services" class="btn btn-blue">Explore Services</a>
+        <a href="https://wa.me/+2349040127973" target="_blank" class="btn btn-wa">💬 WhatsApp Us</a>
       </div>
+      <div class="hero-stats">
+        <div><div class="h-stat-num">5+</div><div class="h-stat-label">Years Experience</div></div>
+        <div><div class="h-stat-num">1k+</div><div class="h-stat-label">Repairs Done</div></div>
+        <div><div class="h-stat-num">90%</div><div class="h-stat-label">Satisfaction Rate</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img">
+        <img src="images/repair2.jpg" alt="Phone Repair">
+        <div class="hero-float">
+          <div class="hero-float-label">Services Complete</div>
+          <div class="hero-float-val">1,000+</div>
+        </div>
+        <div class="hero-float2">⭐ 5.0 Rating</div>
+      </div>
+    </div>
+  </section>
 
-  
-</section>
 
-
-<section id="about">
-   <div class="about-title">
-    <h3>About Experience</h3>
-    <p class="">We have Than 5 Years Experience in Gadget, Smartphone & and Laptop Repair Services. </p>
-   </div>
-    
-   <div class="about-box">
-
-   <div class="about-container">
-    <div class="service-title">
-      <h3>Quality Services</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/quality service.png">
-            <p> We Render fast and effective solution to device problems, We make use of Quality parts from top best parts manufacturers for Repairing Services </p>
-          </div>
-   </div>
-   
-   <div class="about-container">
-    <div class="service-title">
-      <h3>Professional Team</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/proffessional team.png">
-            <p> We Collaborate with professionals in industry to provide the best Mobile Repair And Fixing Services for our Customers. All Our teams are Reliable and Trustworthy  </p>
-          </div>
-   </div>
-   
-   <div class="about-container">
-    <div class="service-title">
-      <h3>Why Choose Us?</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/why choose us.png">
-            <p>Fast Turnaround, Affordable Pricing, Experienced Technicians, Quality Parts, Excellent Support. </p>
-          </div>
-   </div>
-
-   </div>
-</section>
-  
+  <!-- ABOUT -->
+  <section id="about" class="wrap">
+    <div class="sec-head center">
+      <span class="label">Why We're Different</span>
+      <h2 class="sec-title">5+ Years of Trusted Repair Excellence</h2>
+      <p class="sec-sub">We've been restoring devices with precision and care since day one — using quality parts and a customer-first approach.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card fade-up">
+        <div class="about-icon">🛠️</div>
+        <h3>Quality Services</h3>
+        <p>Fast, effective solutions using top-tier parts from leading manufacturers. Every repair meets our strict quality standard before it leaves our hands.</p>
+      </div>
+      <div class="about-card fade-up">
+        <div class="about-icon">👥</div>
+        <h3>Professional Team</h3>
+        <p>We collaborate with industry professionals to deliver the best repair experience. All our technicians are reliable, certified, and trustworthy.</p>
+      </div>
+      <div class="about-card fade-up">
+        <div class="about-icon">✅</div>
+        <h3>Why Choose Us?</h3>
+        <p>Fast turnaround, affordable pricing, experienced technicians, quality parts, and excellent customer support — all under one roof.</p>
+      </div>
+    </div>
+  </section>
   
   <!-- Our Introduction Section -->
 
-  <section id="our-introduction">
-  <div class="about-title">
-    <h3>What We Do!!!</h3>
-</div>
-    <div class="intro-container">
-  <div class="card-img">
-            <img src="images/repair2.jpg" alt="projects">
-            <p class="card-words">
-              OUR GOAL: <br>
+  <div class="divider"></div>
 
-              "We Will fix it,
-               till its perfect"
-            </p>
-          </div>
-     <div class="introduction-content">
-          <h3>Welcome To AGJ REPAIRS, A Mobile Device Hardware And Software Technician Center</h3>
-     <p>We fix all brands and models cracked screens, battery issues, software glitches and more. Get your device back like new!!!</p>
-
-     <div class="introduction-content-tag">
-      <img src="images/what we do.png" width="40px" height="40px">
-       <div class="introduction-content-tag-item">
-      <h4>Mobile Device Technician Expert</h4>
-      <h5>We fix Device Issues like Screen Replacement, Screen Seperation, Charging Port repair, Camera Repair, Digitizer Repair, Battery Replacement <span ><a href="#our-services" style="color: rgb(8, 31, 236)">Read More</a></span>. </h5> </h5>
+  <!-- INTRO -->
+  <section id="our-introduction" class="wrap">
+    <div class="intro-inner">
+      <div class="intro-img-side fade-up">
+        <img src="images/repair2.jpg" alt="AGJ Repairs">
+        <div class="intro-badge-card">
+          <small>Our Promise</small>
+          <strong>"We'll fix it, till it's perfect."</strong>
+        </div>
       </div>
-     </div>
-
-     <div class="introduction-content-tag">
-      <img src="images/what we do.png" width="40px" height="40px">
-       <div class="introduction-content-tag-item">
-      <h4>Genaral Computer Maintenance</h4>
-      <h5>We deals with Computer Data Backup And Reloading, Mother Board Servicing, RAM Installation <span ><a href="#our-services" style="color: rgb(8, 31, 236)">Read More</a></span>. </h5>
-     </div>
-    </div>
-    <a href="#contact-us"> <button>Contact Us</button></a>
-    </div>
-   </div>
-  </section>
-
-
-<!-- WHY CHOOSE US SECTION -->
-  <section id="why-choose-us">
-    <div class="about-title">
-      <p style="margin-top: 40px;">---Why Choose US---</p>
-    <h3>Gadget Repair For Everyone</h3>
- <p class="why-choose-us_text">Fast Turnaround, Affordable Pricing, Experienced Technicians, Quality Parts, Excellent Support.</p>
-</div>
-
-<div class="wcu-box">
-  
-   <div class="wcu-container">
-    <div class="service-title">
-      <h3>Quality Services</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/quality service.png">
-            <p>We Render fast and effective solution to all device problems, We make use of Quality parts from top best parts manufacturers.</p>
-          </div>
-   </div>
-
-   
-   <div class="wcu-container">
-    <div class="service-title">
-      <h3>Customer Services</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/customer service.jpeg">
-            <p> We Provide Sameday Services for all our Repair Services, We have good listen ear to our customers Complaint </p>
-          </div>
-   </div>
-</div>
-
-<div class="wcu-box">
-  
-   <div class="wcu-container">
-    <div class="service-title">
-      <h3>Secured Device</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/secured device.png">
-            <p>Customers can trust our Technicians with their devices, their data and other items, as they are honesty and Trustworthy.</p>
-          </div>
-   </div>
-
-   
-   <div class="wcu-container">
-    <div class="service-title">
-      <h3>No Virus Threat</h3>
-          </div>
-
-          <div class="services-text">
-            <img src="images/no virus threat.jpeg">
-            <p>Devices are passed through a full malware and virus inspection, We can scan with up-to-date antivirus software, and remove any threat. </p>
-          </div>
-   </div>
-   
-</div>
-
-<div class="guideline">
-  <p>Get Proper Services From us <a href="suscribe.html"><span style="color: rgb(88, 100, 95); text-decoration: underline;">guideline and Knowledge</span></a></p>
-</div>
-   
-  </section>
-
-   <section id="our-services">
-    <div class="about-title">
-      <p style="margin-top: 40px;">---Our Services---</p>
-    <h3>Our Efficient Solution</h3>
- <p class="why-choose-us_text"> We're a trusted phone repair dedicated to restoring your device's functionality with speed and care. Our technicians bring years of experience, using quality parts and customer-first service.</p>
-</div>
-
-
-<!-- OUR SERVICEs BOXES -->
-<div class="container">
-    <div class="wrapper">
-      <div class="card-list">
-        <div class="card">
-          <div class="card-image">
-            <img src="images/repair2.jpg" alt="projects">
-            <p class="card-tag">
-              AGJ REPAIRS
-            </p>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">PHONE REPAIR AND SERVICES</h3>
-            <p class="card-text">
-               We fix Device Issues like Screen Replacement, Screen Seperation, Charging Port repair, Camera Repair, Digitizer Repair, Battery Replacement, Face ID and Fingerprint Verification Issues, All Kind Integrated Circuits(IC) Issues, Device Flashing And Backup and other Various Device Issues. . </p>
-              
-              <div class="card-footer">
-                <div class="card-profile">
-                 <a href="https://wa.me/+2349040127973" target="_blank"><button>Repair Now</button></a>
-                  <a href="booking.html" target="_blank"><button>Book Session </button></a>
-                </div>
-              </div>         
+      <div>
+        <span class="label">What We Do</span>
+        <h2 class="sec-title">Welcome to AGJ REPAIRS</h2>
+        <p class="sec-sub" style="margin-bottom:28px;">A Mobile Device Hardware &amp; Software Technician Center. We fix all brands and models — cracked screens, battery issues, software glitches and more. Get your device back like new!</p>
+        <div class="intro-tag fade-up">
+          <div class="intro-tag-ico">📱</div>
+          <div>
+            <h4>Mobile Device Technician Expert</h4>
+            <p>Screen Replacement, Charging Port repair, Camera Repair, Battery Replacement, Digitizer Repair &amp; more. <a href="#our-services">Read More →</a></p>
           </div>
         </div>
-       
-
-
-        
-
-          <div class="card">
-          <div class="card-image">
-            <img src="images/repair 5.jpg" alt="projects">
-            <p class="card-tag">
-              AGJ REPAIRS
-            </p>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">LAPTOP REPAIR</h3>
-            <p class="card-text">
-              We fix Laptop faults like Screen Replacement, Data Backup and Reloading, Keyboard Services and Replacement, charging ports issues, softwares installation, and other faults in a laptop system. </p>
-              
-              <div class="card-footer">
-                <a href="https://wa.me/+2349040127973" target="_blank"><button>Repair Now</button></a>
-                <a href="booking.html" target="_blank"><button>Book Session </button></a>
-              </div>         
+        <div class="intro-tag fade-up">
+          <div class="intro-tag-ico">💻</div>
+          <div>
+            <h4>General Computer Maintenance</h4>
+            <p>Data Backup &amp; Reloading, Motherboard Servicing, RAM Installation &amp; full workspace setup. <a href="#our-services">Read More →</a></p>
           </div>
         </div>
-       
- <div class="card">
-          <div class="card-image">
-            <img src="images/repair 6.jpg" alt="projects">
-            <p class="card-tag">
-              AGJ REPAIRS
-            </p>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title"> GENERAL COMPUTER MAINTENANCE</h3>
-            <p class="card-text">
-              We deals with Computer Data Backup And Reloading, Mother Board Servicing, RAM Installation, Compltete Computer setup for Workspace, Computer Network issues, Computer Room Setp for Schools, (church, Mosque and for home use) and other Computer Issues. </p>
-              
-              <div class="card-footer">
-                
-                 <a href="https://wa.me/+2349040127973" target="_blank"><button>Repair Now</button></a>
-                 <a href="booking.html" target="_blank"><button>Book Session </button></a>
-              </div>         
-          </div>
-  
-  </section>
-
-
-  <section id="faq-section">
-    <div class="faq-container">
-       <div class="faq-container-1">
-        <p>---Have Question?</p>
-        <h3>Frequently Asked Question</h3>
-
-        <p>There are differant kind of Questions asked by our Customers, like can you clean my phone?, how do you accept payment? or what payment method do you prefer?, Do you use original product?, or what if i dont know what's wrong with my device?.  </p>
-        <p> At AGJ REPAIRS we have an answer to all your queation, or you have a question apart from the frequently asked ones?, you can talk to us directly, our technicians are available to answer your questions virtually. </p>
-
-        <a href="https://wa.me/+2349040127973" target="_blank"><button>Ask Questions Here</button></a>
-       </div>
-
-<!-- 
-        <button><span>Can you Clean My Phone or Device? <details>
-            <summary></summary>
-
-            <p>We only have location in Ogun state, buh we deliver worldwide</p>
-          </details></span></button>
-
-         <button><span>Do you offer a Warranty? <details>
-            <summary></summary>
-
-            <p>We only have location in Ogun state, buh we deliver worldwide</p>
-          </details></span></button>
-
-          <button><span>How many Locations Do you Have? <details>
-            <summary></summary>
-
-            <p>We only have location in Ogun state, buh we deliver worldwide</p>
-          </details></span></button>
-       </div>
-        -->
-
-       
-        <ul class="faq">
-          <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span>How long does a typical phone repair take?</span>
-            </div>
-            <div class="a">
-              <p>
-                Most repairs like screen or battery Replacement take between 30 minutes to 1 hour, depending on the issue and device model.
-              </p>
-            </div>
-          </li>
-
-           <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span>What if i dont Know waht's wrong with my device?</span>
-            </div>
-            <div class="a">
-              <p>
-                No worries- bring it in or book a diagnostic service. We'll assess it and let you Know the issue before any repair.
-              </p>
-            </div>
-          </li>
-
-           <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span>Do you use original parts?</span>
-            </div>
-            <div class="a">
-              <p>
-              We use high-quality OEM or original parts depending on availability and your preference.
-              </p>
-            </div>
-          </li>
-
-           <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span>What payments Method do you accept?</span>
-            </div>
-            <div class="a">
-              <p>
-               We accept cash, bank transfers, and mobile payments!
-              </p>
-            </div>
-          </li>
-
-           <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span>Where are you located?</span>
-            </div>
-            <div class="a">
-              <p>
-                We are located in Ogun State, but we have technicians around Nigeria.
-              </p>
-            </div>
-          </li>
-
-           <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span>Do you offer warranty?</span>
-            </div>
-            <div class="a">
-              <p>
-                We offer a Limited lifetime Warranty on Repairs. If the original repair fails because of defect in the part we installed or due to workmanship, we will fix it for you. For more details, contact us directly.
-              </p>
-            </div>
-          </li>
-
-           <li>
-            <div class="q">
-              <span class="arrow"></span>
-              <span> Do you manufacture the parts you use yourself?</span>
-            </div>
-            <div class="a">
-              <p>
-                No, we are not a manufacturing company, but the materials we used are from the best manufacturer in industry!
-              </p>
-            </div>
-          </li>
-        </ul>
+        <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#contact-us" class="btn btn-blue">Contact Us</a>
+          <a href="#our-services" class="btn btn-ghost">Our Services</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- customer sucess -->
+  <!-- WHY CHOOSE US -->
+  <section id="why-choose-us" class="wrap">
+    <div class="sec-head center">
+      <span class="label">Why Choose Us</span>
+      <h2 class="sec-title">Gadget Repair For Everyone</h2>
+      <p class="sec-sub">Fast turnaround, affordable pricing, experienced technicians, quality parts &amp; excellent support.</p>
+    </div>
+    <div class="wcu-grid">
+      <div class="wcu-card fade-up">
+        <div class="wcu-ico">⚡</div>
+        <div><h3>Quality Services</h3><p>We render fast and effective solutions to all device problems, using quality parts from top manufacturers to ensure lasting repairs.</p></div>
+      </div>
+      <div class="wcu-card fade-up">
+        <div class="wcu-ico">🎧</div>
+        <div><h3>Customer Services</h3><p>We provide same-day services for all repairs and have a good listening ear to every customer's complaint and need.</p></div>
+      </div>
+      <div class="wcu-card fade-up">
+        <div class="wcu-ico">🔒</div>
+        <div><h3>Secured Device</h3><p>Customers can trust our technicians with their devices and data. Our team operates with complete honesty and transparency.</p></div>
+      </div>
+      <div class="wcu-card fade-up">
+        <div class="wcu-ico">🛡️</div>
+        <div><h3>No Virus Threat</h3><p>Every device passes through a full malware and virus inspection using up-to-date antivirus software with all threats removed.</p></div>
+      </div>
+    </div>
+  </section>
+
+<!-- Our Services Section -->
+  <section id="our-services" class="wrap">
+    <div class="sec-head center">
+      <span class="label">Our Services</span>
+      <h2 class="sec-title">Our Efficient Solutions</h2>
+      <p class="sec-sub">Trusted repair professionals dedicated to restoring your device's functionality with speed and care.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-img"><img src="images/repair2.jpg" alt="Phone Repair"><span class="svc-tag">AGJ Repairs</span></div>
+        <div class="svc-body">
+          <h3>Phone Repair &amp; Services</h3>
+          <p>Screen Replacement, Charging Port repair, Camera Repair, Digitizer Repair, Battery Replacement, Face ID/Fingerprint issues, IC Issues, Device Flashing &amp; Backup, and more.</p>
+          <div class="svc-actions">
+            <a href="https://wa.me/+2349040127973" target="_blank" class="btn btn-blue">Repair Now</a>
+            <a href="booking.html" class="btn btn-ghost">Book Session</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-img"><img src="images/repair 5.jpg" alt="Laptop Repair"><span class="svc-tag">AGJ Repairs</span></div>
+        <div class="svc-body">
+          <h3>Laptop Repair</h3>
+          <p>Screen Replacement, Data Backup &amp; Reloading, Keyboard Services and Replacement, charging port issues, software installation, and other laptop faults.</p>
+          <div class="svc-actions">
+            <a href="https://wa.me/+2349040127973" target="_blank" class="btn btn-blue">Repair Now</a>
+            <a href="booking.html" class="btn btn-ghost">Book Session</a>
+          </div>
+        </div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-img"><img src="images/repair 6.jpg" alt="Computer Maintenance"><span class="svc-tag">AGJ Repairs</span></div>
+        <div class="svc-body">
+          <h3>General Computer Maintenance</h3>
+          <p>Data Backup &amp; Reloading, Motherboard Servicing, RAM Installation, workspace setup, network issues, computer room setup for schools, churches &amp; homes.</p>
+          <div class="svc-actions">
+            <a href="https://wa.me/+2349040127973" target="_blank" class="btn btn-blue">Repair Now</a>
+            <a href="booking.html" class="btn btn-ghost">Book Session</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   
-<section id="tech-stack">
-   <div class="tech-text">
-   </div>
-
-   <div class="scroll-wrapper">
-  <div class="tool-stack">
-  <div class="skills-container">
-    <div class="skill-box">
-      <!-- <img src="assets/react-BzCHfcRJ.png" alt="react"> -->
-       <h3>5+</h3>
-      <p>Glorius years</p>
+  <!-- STATS -->
+  <section id="tech-stack">
+    <div class="stats-row">
+      <div class="stat-cell"><div class="stat-n">5+</div><div class="stat-l">Glorious Years</div></div>
+      <div class="stat-cell"><div class="stat-n">100+</div><div class="stat-l">Happy Customers</div></div>
+      <div class="stat-cell"><div class="stat-n">1k+</div><div class="stat-l">Services Complete</div></div>
+      <div class="stat-cell"><div class="stat-n">90%</div><div class="stat-l">Satisfaction Rate</div></div>
     </div>
-  </div>
+  </section>
 
-   <div class="skills-container">
-    <div class="skill-box">
-      <!-- <img src="assets/css.png" alt="react"> -->
-       <h3>100+</h3>
-      <p>Happy Customers</p>
+   <section id="customer-review" class="wrap">
+    <div class="sec-head center">
+      <span class="label">Happy Clients</span>
+      <h2 class="sec-title">What Our Customers Say</h2>
     </div>
-  </div>
-
-  <div class="skills-container">
-    <div class="skill-box">
-      <!-- <img src="assets/csss.png" alt="react"> -->
-       <h3>1k+</h3>
-      <p>Service Complete</p>
+    <div class="reviews-grid">
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">I thought my phone was beyond saving after it dropped in water, but they fixed it perfectly! Fast, friendly and affordable service.</p>
+        <div class="rev-person"><div class="rev-av">II</div><div><div class="rev-name">Ibrahim I.</div><div class="rev-loc">Abeokuta</div></div></div>
+      </div>
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">Very professional. They replaced my screen in less than an hour. My phone looks brand new again. I'll definitely be back!</p>
+        <div class="rev-person"><div class="rev-av">AB</div><div><div class="rev-name">Adenugba B.</div><div class="rev-loc">Shagamu</div></div></div>
+      </div>
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">What impressed me most was their honesty and speed. They didn't overcharge and explained every step of the process. Great service!</p>
+        <div class="rev-person"><div class="rev-av">OU</div><div><div class="rev-name">Ojukotimi U.</div><div class="rev-loc">Abeokuta</div></div></div>
+      </div>
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">Detail-oriented engineers. They set up my entire office workspace in three days. Their honesty and listening ear to customer demands is top-notch!</p>
+        <div class="rev-person"><div class="rev-av">AT</div><div><div class="rev-name">Adeyinka T.</div><div class="rev-loc">Abeokuta</div></div></div>
+      </div>
+      <div class="rev-card fade-up">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">I had charging port issues for weeks. They fixed it the same day I walked in. Super convenient and reliable!</p>
+        <div class="rev-person"><div class="rev-av">BT</div><div><div class="rev-name">Blessing T.</div><div class="rev-loc">Lagos</div></div></div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="skills-container">
-    <div class="skill-box">
-      <!-- <img src="assets/html.png" alt="react"> -->
-       <h3>90%</h3>
-      <p>Satisfaction</p>
+
+   <!-- FAQ -->
+ <!-- FAQ -->
+  <section id="faq-section" class="wrap">
+    <div class="faq-layout">
+      <div class="faq-left">
+        <span class="label">FAQs</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Our customers ask many questions — here are the most common ones answered. Got something else on your mind?</p>
+        <p>Our technicians are available to answer your questions virtually.</p>
+        <br>
+        <a href="https://wa.me/+2349040127973" target="_blank" class="btn btn-blue">Ask Us Directly 💬</a>
+      </div>
+      <ul class="faq-list">
+        <li class="faq-item"><div class="faq-q">How long does a typical phone repair take? <i class="faq-ico">+</i></div><div class="faq-a"><p>Most repairs like screen or battery replacement take between 30 minutes to 1 hour, depending on the issue and device model.</p></div></li>
+        <li class="faq-item"><div class="faq-q">What if I don't know what's wrong with my device? <i class="faq-ico">+</i></div><div class="faq-a"><p>No worries — bring it in or book a diagnostic service. We'll assess it and let you know the issue before any repair begins.</p></div></li>
+        <li class="faq-item"><div class="faq-q">Do you use original parts? <i class="faq-ico">+</i></div><div class="faq-a"><p>We use high-quality OEM or original parts depending on availability and your preference.</p></div></li>
+        <li class="faq-item"><div class="faq-q">What payment methods do you accept? <i class="faq-ico">+</i></div><div class="faq-a"><p>We accept cash, bank transfers, and mobile payments!</p></div></li>
+        <li class="faq-item"><div class="faq-q">Where are you located? <i class="faq-ico">+</i></div><div class="faq-a"><p>We are located in Ogun State, but we have technicians across Nigeria.</p></div></li>
+        <li class="faq-item"><div class="faq-q">Do you offer a warranty? <i class="faq-ico">+</i></div><div class="faq-a"><p>We offer a limited lifetime warranty on repairs. If the original repair fails due to a defect in the part we installed or workmanship, we will fix it for you.</p></div></li>
+        <li class="faq-item"><div class="faq-q">Do you manufacture the parts you use? <i class="faq-ico">+</i></div><div class="faq-a"><p>No, we are not a manufacturing company, but the materials we use are from the best manufacturers in the industry!</p></div></li>
+      </ul>
     </div>
-  </div>
-
-  </div>
+  </section>
 
 
- 
 
-   
 
-</div>
-   
   
- 
-</section>
-
-<!-- CUSTOMER REVIEW  -->
-<section id="customer-review">
-   <div class="faq-container-1">
-        <p>---Our Happy Clients? </p>
-        <h3>Our Customers Review</h3>
-        </div>
-
-        <div class="what-client-say">
-          <div class="what-client-say_1"> 
-             <img src="images/quoteleft.png">
-            <p> I thought my phone was beyond saving after it dropped in water, but they fixed it perfectly! fast, friendly and affordable service. </p>
-
-            <H4>Ibrahim I., Abeokuta</H4>
-          
-          </div>
-
-          
-
-          <div class="what-client-say_1">
-             <img src="images/quoteleft.png">
-            <p> Very proffessional. They replaced my screen in less than an hour. my phone looks brand new again. I'll definitely be back if i need any other repairs.</p>
-
-            <H4> Adenugba B., Shagamu</H4>
-         
-          </div>
-        </div>
-
-
-         <div class="what-client-say">
-          <div class="what-client-say_1">
-             <img src="images/quoteleft.png">
-            <p> What Impressed me most was their honesty and speed. They didn't overcharge and explained every step of the process. Great customer service.</p>
-
-            <H4> Ojukotimi U., Abeokuta</H4>
-          
-          </div>
-
-
-                   <div class="what-client-say">
-          <div class="what-client-say_1">
-             <img src="images/quoteleft.png">
-            <p> They are a detailed Oriented Engineer,  they complete the setting up of a workspace for me in my office in Three days, and what impressed me most is their honesty and listening ear to customer demand. I love your work, keep it up</p>
-
-            <H4> Adeyinka T., Abeokuta</H4>
-          
-          </div>
-
-          
-
-          <div class="what-client-say_1">
-             <img src="images/quoteleft.png">
-            <p>I had issues with my charging port for weeks. They fixed it the same day i walked in. Super Convinient and reliable!.</p>
-
-            <H4>Blessing T., Lagos</H4>
-         
-          </div>
-        </div>
-</section>
 
 <!-- CONTACT US -->
- <section id="contact-us">
-  <div class="about-title">
-    <p >---CONTACT US---</p>
-    <H3 >Have a Question or Ready to fix?</H3>
-    <p class="why-choose-us_text"> You can reach out to us by filling your details in the form below, and write the message you want to pass to us, Our customer support will respond immediately via the contact information you provide, Thank You.</p>
-  </div>
-
-  <div class="msg-info-container">
-      <form class="msg-info-container" action="https://formspree.io/f/xzzklqok" method="POST">
-    <div class="msg-info">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="text" name="phone" Placeholder="Whatsapp or Mobile Number" required>
-    
-    </div>
-
-    <div class="msg-content">
-    <input type="text" name="message" placeholder="Your Message"  required>
-    <button type="submit">Send</button>
-  </form>
-  </div>
- </section>
-
-  
-
- <footer>
-  <div class="footer-logo">
-    <h2>AGJ <span style="color: rgb(31, 31, 143);">REPAIRS</span></h2>
-
-    <p>We'll Fix it, Till Its Perfect</p>
-    <h3>Stay Connected</h3>
-  <ul>
-
-    <a href="https://facebook.com/dm.immaculate"><li><img src="images/icons8-facebook-50.png"  width="30px" height="30px"></li></a>
-    <a><li><img src="images/icons8-instagram-50.png"  width="30px" height="30px"></li></a>
-    <a href="https://wa.me/+2349040127973" target="_blank"><li><img src="images/icons8-whatsapp-50.png" width="30px" height="30px"></li></a>
-  </ul>
-
-  </div>
-
-  <div class="quick-links">
-  <h3>Quick Links</h3>
-
-  <ul>
-  <li><a href="#">Home</a></li>
-  <li><a href="#about">About Us</a></li>
-  <li><a href="#our-services">Services</a></li>
-  <li><a href="#contact-us">Contact Us</a></li>
-  <li><a href="#customer-review">What Our Customers say</a></li>
-  <li><a href="#our-introduction">Job success</a></li>
-   </ul>
-  </div>
-
-  
-  <div class="quick-links">
-  <h3>Our Services</h3>
-
-  <ul>
-  <li> <a>Smartphone Repair</a> </li>
-  <li> <a>Laptop Repair </a> </li>
-  <li> <a>Desktop Repair </a> </li>
-  <li> <a>General Computer Maintenance</a>
-  </li>
-   </ul>
-  </div>
-
-  <div class="quick-links">
-  <h3>Contact Us</h3>
-
-  <ul>
-  <li>Shop 5, yellow roof building, Abeokuta Computer village Tarmac, Abeokuta, Ogun State.  </li>
-  <li>08143156714 <br> 08057704554</li>
-  <li>agjrepairs@gmail.com </li>
-   </ul>
-  </div>
-
  
- </footer>
-  <div class="all-rights" style="text-align: center;color: aliceblue; background: black;">
-    <p>All Rights Reserved. Developed by AGJ TECHNOLOGY</p>
+  <section id="contact-us" class="wrap">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <span class="label">Contact Us</span>
+        <h2>Have a Question or Ready to Fix?</h2>
+        <p>Fill out the form and our support team will respond promptly via your provided contact details. We're always here to help!</p>
+        <div class="c-detail"><div class="c-ico">📍</div><div><strong>Address</strong><span>Shop 5, Yellow Roof Building, Abeokuta Computer Village Tarmac, Ogun State.</span></div></div>
+        <div class="c-detail"><div class="c-ico">📞</div><div><strong>Phone</strong><span>08143156714 / 08057704554</span></div></div>
+        <div class="c-detail"><div class="c-ico">✉️</div><div><strong>Email</strong><span>agjrepairs@gmail.com</span></div></div>
+      </div>
+      <div class="contact-form">
+        <form action="https://formspree.io/f/xzzklqok" method="POST">
+          <div class="form-row">
+            <div class="form-g"><label>Your Name</label><input type="text" name="name" placeholder="John Doe" required></div>
+            <div class="form-g"><label>Email Address</label><input type="email" name="email" placeholder="john@example.com" required></div>
+          </div>
+          <div class="form-g"><label>WhatsApp / Mobile Number</label><input type="text" name="phone" placeholder="+234 800 000 0000" required></div>
+          <div class="form-g"><label>Your Message</label><textarea name="message" placeholder="Describe your device issue or enquiry..." required></textarea></div>
+          <button type="submit" class="form-btn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <footer>
+    <div class="f-brand">
+      <div class="f-brand-name">AGJ <span>REPAIRS</span></div>
+      <p>We'll fix it, till it's perfect. Your trusted mobile and computer repair specialists in Nigeria.</p>
+      <div class="f-social">
+        <a href="https://facebook.com/dm.immaculate" target="_blank" class="f-soc">f</a>
+        <a href="#" class="f-soc">📷</a>
+        <a href="https://wa.me/+2349040127973" target="_blank" class="f-soc">💬</a>
+      </div>
+    </div>
+    <div class="f-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#our-services">Services</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+        <li><a href="#customer-review">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#our-services">Smartphone Repair</a></li>
+        <li><a href="#our-services">Laptop Repair</a></li>
+        <li><a href="#our-services">Desktop Repair</a></li>
+        <li><a href="#our-services">Computer Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact Info</h4>
+      <ul>
+        <li><span>Shop 5, Yellow Roof Building, Abeokuta Computer Village, Ogun State.</span></li>
+        <li><span>08143156714<br>08057704554</span></li>
+        <li><span>agjrepairs@gmail.com</span></li>
+      </ul>
+    </div>
+    
+  </footer>
+  <div class="footer-bar">
+    <span>© 2026 AGJ Repairs. All Rights Reserved.</span>
+    <span>Developed by AGJ TECHNOLOGY</span>
   </div>
 <script src="script.js"></script>
 </body>

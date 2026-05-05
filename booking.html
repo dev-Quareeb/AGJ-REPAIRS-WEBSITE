@@ -1,125 +1,621 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGJ REPAIRS | Bookings</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="media.css">
-</head>
-<body>
+  <title>AGJ REPAIRS | Book a Service</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <style>
-    .sub-section {
-      margin: auto;
-      background: linear-gradient(135deg, #1a65ac 0%, #F9FAFB 100%);
+    :root {
+      --bg: #f5f0e8;
+      --bg-alt: #edeae1;
+      --blue: #1269db;
+      --blue-dark: #0d4fa3;
+      --blue-mid: #2a7ae4;
+      --blue-pale: #e8f0fb;
+      --text: #1a1f2e;
+      --text-mid: #3d4a5c;
+      --text-soft: #6b7a90;
+      --white: #ffffff;
+      --card-alt: #f9f6ef;
+      --border: #ddd9cf;
+      --border-blue: rgba(18,105,219,0.18);
+      --shadow: 0 4px 24px rgba(18,105,219,0.08);
+      --shadow-hover: 0 12px 40px rgba(18,105,219,0.16);
     }
 
-    .sub-section-head {
-      display: flex;
-      justify-content: center;
-      margin: 0px;
-      gap: 10px;
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; line-height: 1.15; color: var(--text); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: 68px; padding: 0 clamp(20px, 5vw, 64px);
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(245, 240, 232, 0.93);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 20px rgba(18,105,219,0.09); }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--text); }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; align-items: center; list-style: none; gap: 4px; }
+    .nav-links a {
+      padding: 7px 15px; border-radius: 7px; font-size: 0.875rem; font-weight: 500;
+      color: var(--text-mid); transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); background: var(--blue-pale); }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 6px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px; transition: all 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    .mobile-menu {
+      position: fixed; inset: 0; background: rgba(245,240,232,0.98);
+      backdrop-filter: blur(20px); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 28px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 700; color: var(--text); transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--blue); }
+    .mob-close {
+      position: absolute; top: 22px; right: 24px;
+      font-size: 1.6rem; background: none; border: none; cursor: pointer; color: var(--text);
     }
 
-    #Subscribebtn {
-      margin-left: 70px;
-      width: 100px;
-  padding: 10px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #1a65ac 0%, #F9FAFB 100%);
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding-top: 68px;
+      background: linear-gradient(135deg, #f5f0e8 55%, #e4eef9 100%);
+      padding-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(18,105,219,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 40px) clamp(40px, 5vw, 64px);
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--blue); font-size: 0.85rem; font-weight: 600;
+      margin-bottom: 24px; transition: gap 0.2s;
+    }
+    .back-link:hover { gap: 10px; }
+    .back-link svg { transition: transform 0.2s; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    .label {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--blue);
+      display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;
+    }
+    .label::before { content: ''; display: block; width: 22px; height: 2px; background: var(--blue); border-radius: 2px; }
+
+    .page-hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 14px; }
+    .page-hero p { color: var(--text-soft); font-size: 1rem; line-height: 1.7; }
+
+    /* ── STEPS BAR ── */
+    .steps-bar {
+      display: flex; justify-content: center; align-items: center;
+      gap: 0; padding: 28px clamp(20px,5vw,40px) 0;
+      position: relative; z-index: 1;
+    }
+    .step {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--border); color: var(--text-soft);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-size: 0.82rem; font-weight: 700;
+      transition: all 0.3s;
+    }
+    .step.active .step-num { background: var(--blue); color: #fff; }
+    .step.done .step-num { background: #22c55e; color: #fff; }
+    .step-label { font-size: 0.72rem; color: var(--text-soft); font-weight: 500; white-space: nowrap; }
+    .step.active .step-label { color: var(--blue); font-weight: 600; }
+    .step-line {
+      flex: 1; height: 2px; background: var(--border);
+      max-width: 80px; min-width: 30px; margin-bottom: 18px;
+    }
+    .step-line.done { background: #22c55e; }
+
+    /* ── FORM SECTION ── */
+    .booking-section {
+      padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 40px) clamp(56px, 7vw, 96px);
+    }
+    .booking-wrap {
+      max-width: 780px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.6fr;
+      gap: 32px; align-items: start;
     }
 
-    .popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #1a65ac;
-      color: antiquewhite;
-      padding: 15px 25px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px;
-      opacity: 0;
-      transform: translateY(-20px);
-      z-index: 1000;
+    /* sidebar info */
+    .booking-info {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 18px; padding: 28px; position: sticky; top: 88px;
+    }
+    .booking-info h3 { font-size: 1.05rem; margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px;
+    }
+    .info-ico {
+      width: 36px; height: 36px; background: var(--blue-pale); border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;
+    }
+    .info-item strong { font-size: 0.78rem; color: var(--text-soft); display: block; margin-bottom: 2px; }
+    .info-item span { font-size: 0.88rem; color: var(--text-mid); line-height: 1.5; }
+
+    .info-divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    .wa-nudge {
+      background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px;
+      padding: 14px 16px; display: flex; gap: 10px; align-items: flex-start;
+    }
+    .wa-nudge span { font-size: 0.85rem; color: #166534; line-height: 1.5; }
+    .wa-nudge a { color: #16a34a; font-weight: 600; }
+
+    /* form card */
+    .booking-form-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: clamp(24px, 4vw, 40px);
+      box-shadow: var(--shadow);
+    }
+    .form-section-title {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-soft);
+      margin-bottom: 18px; margin-top: 24px; padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-section-title:first-child { margin-top: 0; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-g { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .form-g label {
+      font-size: 0.8rem; color: var(--text-soft); font-weight: 500;
+    }
+    .form-g input, .form-g select, .form-g textarea {
+      background: var(--bg); border: 1.5px solid var(--border); border-radius: 9px;
+      padding: 12px 15px; color: var(--text);
+      font-family: 'DM Sans', sans-serif; font-size: 0.91rem;
+      transition: border-color 0.2s, background 0.2s; outline: none; resize: none;
+      width: 100%;
+    }
+    .form-g input:focus, .form-g select:focus, .form-g textarea:focus {
+      border-color: var(--blue); background: var(--white);
+    }
+    .form-g input::placeholder, .form-g textarea::placeholder { color: #b0bbc8; }
+    .form-g textarea { height: 100px; }
+    .form-g select { cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7a90' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+    .datetime-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* submit */
+    .form-submit-area { margin-top: 8px; }
+    .form-btn {
+      width: 100%; padding: 15px; background: var(--blue); color: #fff;
+      border: none; border-radius: 9px; font-family: 'Syne', sans-serif;
+      font-size: 0.97rem; font-weight: 600; cursor: pointer;
+      transition: all 0.25s; box-shadow: 0 4px 16px rgba(18,105,219,0.25);
+    }
+    .form-btn:hover { background: var(--blue-dark); transform: translateY(-2px); }
+    .form-btn:disabled { background: #93c5fd; cursor: not-allowed; transform: none; }
+    .form-note {
+      text-align: center; font-size: 0.78rem; color: var(--text-soft);
+      margin-top: 12px; line-height: 1.6;
     }
 
-    .popup.show {
-      opacity: 1;
-      transform: translateY(0);
+    /* ── SUCCESS STATE ── */
+    .success-card {
+      display: none;
+      max-width: 480px; margin: 0 auto;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 20px; padding: 48px 40px;
+      text-align: center; box-shadow: var(--shadow);
+    }
+    .success-card.show { display: block; }
+    .success-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: #f0fdf4; border: 2px solid #bbf7d0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 20px;
+    }
+    .success-card h2 { font-size: 1.5rem; margin-bottom: 12px; }
+    .success-card p { color: var(--text-soft); font-size: 0.93rem; line-height: 1.7; margin-bottom: 24px; }
+    .success-card .btn-back {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 13px 28px; border-radius: 8px;
+      font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 600;
+      background: var(--blue); color: #fff; border: none; cursor: pointer;
+      transition: all 0.25s; box-shadow: 0 4px 16px rgba(18,105,219,0.28);
+    }
+    .success-card .btn-back:hover { background: var(--blue-dark); }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; top: 24px; right: 24px; z-index: 9999;
+      background: var(--text); color: #fff;
+      padding: 14px 22px; border-radius: 10px;
+      font-size: 0.88rem; font-weight: 500;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transform: translateY(-12px); opacity: 0;
+      transition: all 0.35s ease; pointer-events: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .toast.success { background: #16a34a; }
+    .toast.error { background: #dc2626; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a2035; color: rgba(255,255,255,0.72);
+      padding: clamp(32px, 5vw, 56px) clamp(20px, 7vw, 96px);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .f-brand-name { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; color: #fff; }
+    .f-brand-name span { color: #5ba3f5; }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.38); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 740px) {
+      .booking-wrap { grid-template-columns: 1fr; }
+      .booking-info { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .datetime-row { grid-template-columns: 1fr; }
+      .nav-links, .nav-btn { display: none; }
+      .hamburger { display: flex; }
+      .steps-bar { gap: 0; }
+      .step-line { max-width: 40px; min-width: 20px; }
+    }
+    @media (max-width: 480px) {
+      .booking-form-card { padding: 20px; }
+      .step-label { font-size: 0.65rem; }
     }
   </style>
-  <nav>
-     <ul class="sidebar">
-      <li onclick=hideSidebar() ><a><img src="burger cancel.png" height="30" width="30"></a></li>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html">Services</a></li>
-      <li><a href="index.html">Testimonials</a></li>
-      <li><a href="index.html">FAQs</a></li>
-      <li><a href="index.html">Booking and Appointments</a></li>
+</head>
+<body>
 
-     </ul>
-
-    <ul>
-      <li><a href="#">AGJ REPAIRS</a></li>
-      <li class="hideOnMobile"><a href="index.html">Home</a></li>
-      <li class="hideOnMobile"><a href="index.html">Services</a></li>
-      <li class="hideOnMobile"><a href="index.html">Testimonials</a></li>
-      <li class="hideOnMobile"><a href="index.html">FAQS</a></li>
-      <li class="hideOnMobile"><a href="index.html">Booking and Appointments</a></li>
-       <li class="menu-button" onclick=showSidebar()><a ><img src="burger icon.png" height="30" width="50"></a></li>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">AGJ <span>REPAIRS</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#our-services">Services</a></li>
+      <li><a href="index.html#customer-review">Testimonials</a></li>
+      <li><a href="index.html#faq-section">FAQs</a></li>
     </ul>
+    <a href="index.html#contact-us" class="btn-blue nav-btn" style="display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:8px;font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:600;background:var(--blue);color:#fff;border:none;cursor:pointer;margin-left:12px;text-decoration:none;">Contact Us</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-<section class="sub-section">
-  <div class="sub-section-hea">
-  <h3>Subscribe </h3>
-  <a href="index.html">< Home</a>
-  </div>
-  
- 
-  <div class="about-title">
-    
-    <H3 >Book a Service</H3>
-    <p class="why-choose-us_text"> Book a Session for your gadget repairs and service.</p>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mob-close" id="mobClose">✕</button>
+    <a href="index.html#about" class="mob-l">About</a>
+    <a href="index.html#our-services" class="mob-l">Services</a>
+    <a href="index.html#customer-review" class="mob-l">Testimonials</a>
+    <a href="index.html#faq-section" class="mob-l">FAQs</a>
+    <a href="index.html#contact-us" class="mob-l">Contact Us</a>
   </div>
 
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="hero-inner">
+      <a href="index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Home
+      </a>
+      <span class="label">Bookings</span>
+      <h1>Book a Repair Session</h1>
+      <p>Fill in your details below and we'll confirm your appointment. Most same-day repairs available.</p>
+    </div>
 
-   <div class="form-submit" style="display: flex;">
-  <form id="subscribeForm" class="msg-info-container" action="https://formspree.io/f/xzzklqok" method="POST">
-    <div class="msg-info" style="display: grid;"
-    >
-    <p>Your Name</p>
-    <input type="text" name="name" placeholder="Input your Fullname" required>
-    <p>Email</p>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <p>Device model Name</p>
-    <input type="text" name="text" placeholder="Tecno Spark4 KE5" required>
-    <p>Problem Description</p>
-    <input type="text" name="name" placeholder="describe Your Device Problem" required>
-    <p>Preferred Date</p>
-    <input type="date" name="date" placeholder="date" required>
-    <p>Time</p>
-    <input type="time" name="time" placeholder="time" required>
-       </div>
-    <button id="Subscribebtn"  type="submit" onclick="popup()">Book Now</button>
-    <div id="popup" class="popup"> You have successfully Book a Session! </div>
-      </form>
+    <!-- Progress Steps -->
+    <div class="steps-bar">
+      <div class="step active" id="step1">
+        <div class="step-num">1</div>
+        <div class="step-label">Your Details</div>
       </div>
- </section>
- <script src="script.js">
+      <div class="step-line" id="line1"></div>
+      <div class="step" id="step2">
+        <div class="step-num">2</div>
+        <div class="step-label">Device Info</div>
+      </div>
+      <div class="step-line" id="line2"></div>
+      <div class="step" id="step3">
+        <div class="step-num">3</div>
+        <div class="step-label">Schedule</div>
+      </div>
+      <div class="step-line" id="line3"></div>
+      <div class="step" id="step4">
+        <div class="step-num">4</div>
+        <div class="step-label">Confirm</div>
+      </div>
+    </div>
+  </div>
 
-  function popup() {
-  const form = document.getElementById('subscribeForm');
-  const popup = getElementById('popup');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    popup.classList.add('show'); 
-    setTimeout(() => {
-      popup.classList.remove('show');
-    }, 3000);
-    form.reset
-  })
-}
- </script>
+  <!-- BOOKING SECTION -->
+  <section class="booking-section">
+    <div class="booking-wrap" id="bookingWrap">
+
+      <!-- Sidebar Info -->
+      <aside class="booking-info">
+        <h3>📋 Booking Info</h3>
+        <div class="info-item">
+          <div class="info-ico">⚡</div>
+          <div><strong>Same-Day Service</strong><span>Most repairs completed within 1–3 hours of drop-off.</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">📍</div>
+          <div><strong>Our Location</strong><span>Shop 5, Yellow Roof Building, Abeokuta Computer Village Tarmac, Ogun State.</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">💳</div>
+          <div><strong>Payment</strong><span>Cash, bank transfer & mobile payments accepted.</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">🛡️</div>
+          <div><strong>Warranty</strong><span>Limited lifetime warranty on all repair services.</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-ico">📞</div>
+          <div><strong>Phone</strong><span>08143156714 / 08057704554</span></div>
+        </div>
+        <div class="info-divider"></div>
+        <div class="wa-nudge">
+          <span>💬 Prefer to chat first? <a href="https://wa.me/+2349040127973" target="_blank">Message us on WhatsApp</a> before booking.</span>
+        </div>
+      </aside>
+
+      <!-- Booking Form -->
+      <div class="booking-form-card" id="formCard">
+        <form id="bookingForm" action="https://formspree.io/f/xzzklqok" method="POST">
+
+          <div class="form-section-title">Your Details</div>
+          <div class="form-row">
+            <div class="form-g">
+              <label for="fname">Full Name *</label>
+              <input type="text" id="fname" name="name" placeholder="e.g. John Adeyemi" required>
+            </div>
+            <div class="form-g">
+              <label for="femail">Email Address *</label>
+              <input type="email" id="femail" name="email" placeholder="john@example.com" required>
+            </div>
+          </div>
+          <div class="form-g">
+            <label for="fphone">WhatsApp / Phone Number *</label>
+            <input type="tel" id="fphone" name="phone" placeholder="+234 800 000 0000" required>
+          </div>
+
+          <div class="form-section-title">Device Information</div>
+          <div class="form-row">
+            <div class="form-g">
+              <label for="fdevice">Device Type *</label>
+              <select id="fdevice" name="device_type" required>
+                <option value="" disabled selected>Select device type</option>
+                <option value="Smartphone">Smartphone</option>
+                <option value="Tablet">Tablet</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Desktop">Desktop / Computer</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-g">
+              <label for="fmodel">Device Brand &amp; Model *</label>
+              <input type="text" id="fmodel" name="device_model" placeholder="e.g. Tecno Spark 4 / iPhone 13" required>
+            </div>
+          </div>
+          <div class="form-g">
+            <label for="fservice">Service Needed *</label>
+            <select id="fservice" name="service_type" required>
+              <option value="" disabled selected>Select service type</option>
+              <option value="Screen Replacement">Screen Replacement</option>
+              <option value="Battery Replacement">Battery Replacement</option>
+              <option value="Charging Port Repair">Charging Port Repair</option>
+              <option value="Camera Repair">Camera Repair</option>
+              <option value="Software / Flashing">Software / Flashing</option>
+              <option value="Data Backup & Recovery">Data Backup &amp; Recovery</option>
+              <option value="Laptop Repair">Laptop Repair</option>
+              <option value="Computer Maintenance">Computer Maintenance</option>
+              <option value="Diagnostics">Diagnostics (Not sure)</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-g">
+            <label for="fproblem">Problem Description *</label>
+            <textarea id="fproblem" name="problem_description" placeholder="Describe what's wrong with your device. The more detail, the better!" required></textarea>
+          </div>
+
+          <div class="form-section-title">Preferred Schedule</div>
+          <div class="datetime-row">
+            <div class="form-g">
+              <label for="fdate">Preferred Date *</label>
+              <input type="date" id="fdate" name="preferred_date" required>
+            </div>
+            <div class="form-g">
+              <label for="ftime">Preferred Time *</label>
+              <input type="time" id="ftime" name="preferred_time" required>
+            </div>
+          </div>
+
+          <div class="form-submit-area">
+            <button type="submit" class="form-btn" id="submitBtn">Book My Session →</button>
+            <p class="form-note">We'll confirm your booking via WhatsApp or email within a few hours.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Success Card -->
+    <div class="success-card" id="successCard">
+      <div class="success-icon">✅</div>
+      <h2>You're Booked!</h2>
+      <p>Your repair session has been successfully submitted. We'll reach out to confirm your appointment via WhatsApp or email shortly.</p>
+      <a href="index.html" class="btn-back" style="display:inline-flex;align-items:center;gap:7px;padding:13px 28px;border-radius:8px;font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:600;background:var(--blue);color:#fff;text-decoration:none;box-shadow:0 4px 16px rgba(18,105,219,0.28);">← Back to Home</a>
+    </div>
+  </section>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-brand-name">AGJ <span>REPAIRS</span></div>
+    <p>© 2025 AGJ Repairs. All Rights Reserved. Developed by AGJ TECHNOLOGY</p>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+    // Hamburger
+    const ham = document.getElementById('hamburger');
+    const mob = document.getElementById('mobileMenu');
+    const cls = document.getElementById('mobClose');
+    const closeMob = () => { ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = ''; };
+    ham.addEventListener('click', () => {
+      ham.classList.toggle('open'); mob.classList.toggle('open');
+      document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+    });
+    cls.addEventListener('click', closeMob);
+    document.querySelectorAll('.mob-l').forEach(l => l.addEventListener('click', closeMob));
+
+    // Set min date to today
+    const dateInput = document.getElementById('fdate');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.min = today;
+
+    // Toast helper
+    function showToast(msg, type = '') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + type;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    // Step progress tracker
+    const fields = [
+      ['fname', 'femail', 'fphone'],       // step 1
+      ['fdevice', 'fmodel', 'fservice', 'fproblem'], // step 2
+      ['fdate', 'ftime']                    // step 3
+    ];
+
+    function updateSteps() {
+      const steps = [
+        document.getElementById('step1'),
+        document.getElementById('step2'),
+        document.getElementById('step3'),
+        document.getElementById('step4'),
+      ];
+      const lines = [
+        document.getElementById('line1'),
+        document.getElementById('line2'),
+        document.getElementById('line3'),
+      ];
+
+      fields.forEach((group, i) => {
+        const allFilled = group.every(id => {
+          const el = document.getElementById(id);
+          return el && el.value.trim() !== '';
+        });
+        if (allFilled) {
+          steps[i].classList.add('done');
+          steps[i].classList.remove('active');
+          steps[i].querySelector('.step-num').textContent = '✓';
+          if (lines[i]) lines[i].classList.add('done');
+          // Activate next step
+          if (steps[i + 1]) steps[i + 1].classList.add('active');
+        } else {
+          steps[i].classList.remove('done');
+          if (!steps[i].classList.contains('done')) {
+            steps[i].querySelector('.step-num').textContent = i + 1;
+          }
+        }
+      });
+    }
+
+    document.querySelectorAll('.booking-form-card input, .booking-form-card select, .booking-form-card textarea')
+      .forEach(el => el.addEventListener('input', updateSteps));
+    document.querySelectorAll('.booking-form-card select')
+      .forEach(el => el.addEventListener('change', updateSteps));
+
+    // Form submit
+    const form = document.getElementById('bookingForm');
+    const btn  = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          // Show success card, hide form
+          document.getElementById('bookingWrap').style.display = 'none';
+          document.getElementById('successCard').classList.add('show');
+          // Mark step 4 done
+          const s4 = document.getElementById('step4');
+          s4.classList.add('done'); s4.classList.remove('active');
+          s4.querySelector('.step-num').textContent = '✓';
+          document.getElementById('line3').classList.add('done');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          showToast('Something went wrong. Please try again or WhatsApp us.', 'error');
+          btn.disabled = false;
+          btn.textContent = 'Book My Session →';
+        }
+      } catch {
+        showToast('Network error. Please check your connection.', 'error');
+        btn.disabled = false;
+        btn.textContent = 'Book My Session →';
+      }
+    });
+  </script>
 </body>
 </html>
